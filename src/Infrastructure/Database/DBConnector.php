@@ -9,9 +9,9 @@ use PDOException;
 
 class DBConnector
 {
-    private string $DNS = '';
-    private string $USERNAME = '';
-    private string $PASSWORD = '';
+    private string $DNS = 'mysql:dbname=pornhub;host=127.0.0.1';
+    private string $USERNAME = 'client';
+    private string $PASSWORD = '7iyzlg6xfgUCfDAD';
 
     protected function connect()
     {
