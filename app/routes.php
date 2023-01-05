@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Application\Actions\ProductVideo\ListProductVideoAction;
+use App\Application\Actions\ProductVideo\ViewProductVideoAction;
 use App\Application\Actions\User\ListUsersAction;
 use App\Application\Actions\User\ViewUserAction;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -18,6 +20,11 @@ return function (App $app) {
     $app->get('/', function (Request $request, Response $response) {
         $response->getBody()->write('Hello world!');
         return $response;
+    });
+
+    $app->group('/product/videos', function (Group $group) {
+        $group->get('', ListProductVideoAction::class);
+        $group->get('/{pk}', ViewProductVideoAction::class);
     });
 
     $app->group('/users', function (Group $group) {
